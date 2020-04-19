@@ -133,6 +133,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="definicje.cpp" />
+    <ClCompile Include="Forklift.cpp" />
     <ClCompile Include="ModelHelper.cpp" />
     <ClCompile Include="interakcja.cpp" />
     <ClCompile Include="konfiguracja.cpp" />
@@ -143,7 +144,9 @@
     <ClCompile Include="textureTGA.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Forklift.h" />
     <ClInclude Include="model3DS.h" />
+    <ClInclude Include="ModelHelper.h" />
     <ClInclude Include="textureBMP.h" />
     <ClInclude Include="textureTGA.h" />
     <ClInclude Include="Vector.h" />

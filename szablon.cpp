@@ -11,13 +11,14 @@
 #include <time.h>
 #include <direct.h>
 #include <GL/glu.h>
-#include "ModelHelper.cpp"
-
+#include "ModelHelper.h"
+#include "Forklift.h"
 
 //#include <GL/glaux.h>
 //#define GLUTCHECKLOOP
 
-ModelHelper modelHelper;
+ModelHelper* modelHelper = new ModelHelper();
+Forklift* forklift = new Forklift(modelHelper);
 	
 // Wymiary okna
 int oknoSzerkosc=800;
@@ -366,9 +367,9 @@ int main(int argc, char **argv)
 			glutTimerFunc(10,syncTimer,10);
 		resetKamery();
 		//srand( (unsigned)time( NULL ) ); // generator liczb losowych
-	    modelHelper.ladujModele();
-		modelHelper.aktywujSpecjalneRenderowanieModelu("woda",1);
-		modelHelper.aktywujSpecjalneRenderowanieModelu("most",2);
+	    modelHelper->ladujModele();
+		modelHelper->aktywujSpecjalneRenderowanieModelu("woda",1);
+		modelHelper->aktywujSpecjalneRenderowanieModelu("most",2);
 		if (oknoFullScreen && stereoTryb != 2) glutFullScreen();
 		glutMainLoop();        
 	return(0);    
