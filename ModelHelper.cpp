@@ -1,20 +1,19 @@
 #include "ModelHelper.h"
 
-
-void ModelHelper::dodajModel(model3DS* _model, char* file_name)
+void ModelHelper::add_model(model3DS* _model, char* file_name)
 {
-	struct model_w_skladzie* tmp;
-	tmp = (struct model_w_skladzie*) malloc(sizeof(struct model_w_skladzie));
-	tmp->filename = (char*)malloc(strlen(file_name) + 1);
+	struct model_in_memory* tmp;
+	tmp = static_cast<struct model_in_memory*>(malloc(sizeof(struct model_in_memory)));
+	tmp->filename = static_cast<char*>(malloc(strlen(file_name) + 1));
 	strcpy(tmp->filename, file_name);
 	tmp->model = _model;
-	tmp->wsk = sklad_modeli;
-	sklad_modeli = tmp;
+	tmp->wsk = models;
+	models = tmp;
 }
 
-model3DS* ModelHelper::pobierzModel(char* file_name)
+model3DS* ModelHelper::get_model(char* file_name) const
 {
-	struct model_w_skladzie* sklad_tmp = sklad_modeli;
+	struct model_in_memory* sklad_tmp = models;
 	while (sklad_tmp) {
 		if (!_stricmp(sklad_tmp->filename, file_name)) return sklad_tmp->model;
 		char file_name_full[_MAX_PATH];
@@ -27,10 +26,10 @@ model3DS* ModelHelper::pobierzModel(char* file_name)
 	return NULL;
 }
 
-void ModelHelper::rysujModel(char* file_name, int tex_num)
+void ModelHelper::draw_model(char* file_name, int tex_num) const
 {
 	model3DS* model_tmp;
-	if (model_tmp = pobierzModel(file_name))
+	if (model_tmp = get_model(file_name))
 		if (tex_num == -1)
 			model_tmp->draw();
 		else
@@ -38,14 +37,14 @@ void ModelHelper::rysujModel(char* file_name, int tex_num)
 
 }
 
-void ModelHelper::aktywujSpecjalneRenderowanieModelu(char* file_name, int spec_id)
+void ModelHelper::activate_special_model_rendering(char* file_name, int spec_id) const
 {
 	model3DS* model_tmp;
-	if (model_tmp = pobierzModel(file_name))
+	if (model_tmp = get_model(file_name))
 		model_tmp->setSpecialTransform(spec_id);
 }
 
-void ModelHelper::ladujModele()
+void ModelHelper::load_models()
 {
 	WIN32_FIND_DATA* fd;
 	HANDLE fh;
@@ -66,7 +65,7 @@ void ModelHelper::ladujModele()
 			strcpy(filename, "data\\");
 			strcat(filename, fd->cFileName);
 			model_tmp = new model3DS(filename, 1, false);
-			dodajModel(model_tmp, fd->cFileName);
+			add_model(model_tmp, fd->cFileName);
 			printf("[3DS] Model '%s' stored\n", fd->cFileName);
 		} while (FindNextFile(fh, fd));
 }

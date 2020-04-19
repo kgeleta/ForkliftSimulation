@@ -16,7 +16,7 @@ private:
 
 public:
 	Forklift(ModelHelper* _modelHelper);
-	void InvokeAction();
+	void InvokeAction() const;
 };
 
 #endif

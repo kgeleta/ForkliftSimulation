@@ -367,9 +367,9 @@ int main(int argc, char **argv)
 			glutTimerFunc(10,syncTimer,10);
 		resetKamery();
 		//srand( (unsigned)time( NULL ) ); // generator liczb losowych
-	    modelHelper->ladujModele();
-		modelHelper->aktywujSpecjalneRenderowanieModelu("woda",1);
-		modelHelper->aktywujSpecjalneRenderowanieModelu("most",2);
+	    modelHelper->load_models();
+		modelHelper->activate_special_model_rendering("woda",1);
+		modelHelper->activate_special_model_rendering("most",2);
 		if (oknoFullScreen && stereoTryb != 2) glutFullScreen();
 		glutMainLoop();        
 	return(0);    

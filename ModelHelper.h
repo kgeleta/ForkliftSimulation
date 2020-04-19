@@ -7,22 +7,22 @@
 class ModelHelper
 {
 public:
-	struct model_w_skladzie {
+	struct model_in_memory {
 		char* filename;
 		model3DS* model;
-		struct model_w_skladzie* wsk;
+		struct model_in_memory* wsk;
 	};
 
-	struct model_w_skladzie* sklad_modeli = NULL;
+	struct model_in_memory* models = NULL;
 
-	void dodajModel(model3DS* _model, char* file_name);
+	void add_model(model3DS* _model, char* file_name);
 
-	model3DS* pobierzModel(char* file_name);
+	model3DS* get_model(char* file_name) const;
 
-	void rysujModel(char* file_name, int tex_num = -1);
+	void draw_model(char* file_name, int tex_num = -1) const;
 
-	void aktywujSpecjalneRenderowanieModelu(char* file_name, int spec_id = 0);
+	void activate_special_model_rendering(char* file_name, int spec_id = 0) const;
 
-	void ladujModele();
+	void load_models();
 };
 #endif
