@@ -133,7 +133,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="definicje.cpp" />
-    <ClCompile Include="forklift.cpp" />
+    <ClCompile Include="ModelHelper.cpp" />
     <ClCompile Include="interakcja.cpp" />
     <ClCompile Include="konfiguracja.cpp" />
     <ClCompile Include="model3DS.cpp" />
