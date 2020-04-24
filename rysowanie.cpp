@@ -60,6 +60,7 @@ const int CROSSROAD_LENGTH = 7;
 	
 	// forklift1 animation
 	forklift->InvokeAction();
+	forklift->draw_all_pallets();
 	//glPushMatrix();
 	//	if (time % 5 == 0)
 	//	{

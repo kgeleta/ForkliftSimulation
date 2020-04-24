@@ -1,14 +1,16 @@
 #pragma once
 #include <queue>
-
 #include "ModelHelper.h"
 #include "Operation.h"
+#include "Point3D.h"
 
 class Operation;
+class Point3D;
 
 class Forklift
 {
 private:
+	std::vector<Point3D> palletsPositions;
 	ModelHelper* modelHelper;
 	std::queue<Operation*> operations;
 	Operation* current_operation;
@@ -17,12 +19,16 @@ private:
 	float positionX = 0.0f;
 	float positionY = 0.3f;
 	float positionZ = 0.0f;
-
+	bool draw_pallet = true;
 	int time = 0;
 
 public:
 	Forklift(ModelHelper* _modelHelper);
 	void InvokeAction();
+
+	void add_current_pallet();
+
+	void draw_all_pallets();
 	
 	float mast_position() const
 	{
@@ -72,5 +78,16 @@ public:
 	void set_position_z(float position_z)
 	{
 		positionZ = position_z;
+	}
+
+
+	bool is_draw_pallet() const
+	{
+		return draw_pallet;
+	}
+
+	void set_draw_pallet(bool draw_pallet)
+	{
+		this->draw_pallet = draw_pallet;
 	}
 };

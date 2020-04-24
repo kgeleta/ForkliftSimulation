@@ -134,11 +134,14 @@
   <ItemGroup>
     <ClCompile Include="definicje.cpp" />
     <ClCompile Include="Forklift.cpp" />
+    <ClCompile Include="LeavePalletOperation.cpp" />
     <ClCompile Include="LowerMastOperation.cpp" />
     <ClCompile Include="ModelHelper.cpp" />
     <ClCompile Include="interakcja.cpp" />
     <ClCompile Include="konfiguracja.cpp" />
     <ClCompile Include="model3DS.cpp" />
+    <ClCompile Include="MoveXOperation.cpp" />
+    <ClCompile Include="PickUpPalletOperation.cpp" />
     <ClCompile Include="RaiseMastOperation.cpp" />
     <ClCompile Include="rysowanie.cpp" />
     <ClCompile Include="szablon.cpp" />
@@ -147,10 +150,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Forklift.h" />
+    <ClInclude Include="LeavePalletOperation.h" />
     <ClInclude Include="LowerMastOperation.h" />
     <ClInclude Include="model3DS.h" />
     <ClInclude Include="ModelHelper.h" />
+    <ClInclude Include="MoveXOperation.h" />
     <ClInclude Include="Operation.h" />
+    <ClInclude Include="PickUpPalletOperation.h" />
+    <ClInclude Include="Point3D.h" />
     <ClInclude Include="RaiseMastOperation.h" />
     <ClInclude Include="textureBMP.h" />
     <ClInclude Include="textureTGA.h" />

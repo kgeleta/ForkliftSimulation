@@ -6,7 +6,7 @@ RaiseMastOperation::RaiseMastOperation(ShelfLevel shelf_level)
 	{
 	case ShelfLevel::Level0:
 		max_mast_height = -4.5f;
-		max_forks_height = -1.9f;
+		max_forks_height = -1.8f;
 		break;
 	case ShelfLevel::Level1:
 		max_mast_height = -3.3f;
