@@ -1,6 +1,4 @@
-#ifndef MODELHELPER_H
-#define MODELHELPER_H
-
+#pragma once
 #include "model3DS.h"
 #include <direct.h>
 
@@ -25,4 +23,3 @@ public:
 
 	void load_models();
 };
-#endif

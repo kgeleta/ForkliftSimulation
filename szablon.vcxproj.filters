@@ -45,6 +45,12 @@
     <ClCompile Include="Forklift.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RaiseMastOperation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LowerMastOperation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="model3DS.h">
@@ -63,6 +69,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Forklift.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Operation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RaiseMastOperation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LowerMastOperation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
