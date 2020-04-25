@@ -23,7 +23,7 @@ private:
 	int time = 0;
 
 public:
-	Forklift(ModelHelper* _modelHelper);
+	Forklift(ModelHelper* _modelHelper, std::queue<Operation*> _operations);
 	void InvokeAction();
 
 	void add_current_pallet();

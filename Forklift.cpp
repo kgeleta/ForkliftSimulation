@@ -1,37 +1,10 @@
 #include "Forklift.h"
-#include "LeavePalletOperation.h"
-#include "LowerMastOperation.h"
-#include "MoveOperation.h"
-#include "PickUpPalletOperation.h"
-#include "RaiseMastOperation.h"
+#include <utility>
 
-Forklift::Forklift(ModelHelper* _modelHelper)
+Forklift::Forklift(ModelHelper* _modelHelper, std::queue<Operation*> _operations)
 {
 	this->modelHelper = _modelHelper;
-	
-	// TODO: operations should be passed in constructor argument
-	this->operations.push(new MoveOperation(Operation::MoveDirection::Z,5));
-	this->operations.push(new RaiseMastOperation(Operation::ShelfLevel::Level2));
-	this->operations.push(new MoveOperation(Operation::MoveDirection::Z, -5));
-	this->operations.push(new LeavePalletOperation());
-	this->operations.push(new MoveOperation(Operation::MoveDirection::Z, 5));
-	this->operations.push(new LowerMastOperation());
-	
-	this->operations.push(new PickUpPalletOperation());
-	this->operations.push(new RaiseMastOperation(Operation::ShelfLevel::Level0));
-	this->operations.push(new MoveOperation(Operation::MoveDirection::Z, -5));
-	this->operations.push(new LeavePalletOperation());
-	this->operations.push(new MoveOperation(Operation::MoveDirection::Z, 5));
-	this->operations.push(new LowerMastOperation());
-	
-	this->operations.push(new PickUpPalletOperation());
-	this->operations.push(new RaiseMastOperation(Operation::ShelfLevel::Level1));
-	this->operations.push(new MoveOperation(Operation::MoveDirection::Z, -5));
-	this->operations.push(new LeavePalletOperation());
-	this->operations.push(new MoveOperation(Operation::MoveDirection::Z, 5));
-	this->operations.push(new LowerMastOperation());
-	
-	this->operations.push(new PickUpPalletOperation());
+	this->operations = std::queue<Operation*>(std::move(_operations));
 
 	this->current_operation = this->operations.front();
 	this->operations.pop();

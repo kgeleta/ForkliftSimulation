@@ -13,12 +13,17 @@
 #include <GL/glu.h>
 #include "ModelHelper.h"
 #include "Forklift.h"
+#include "LeavePalletOperation.h"
+#include "LowerMastOperation.h"
+#include "MoveOperation.h"
+#include "PickUpPalletOperation.h"
+#include "RaiseMastOperation.h"
 
 //#include <GL/glaux.h>
 //#define GLUTCHECKLOOP
 
 ModelHelper* modelHelper = new ModelHelper();
-Forklift* forklift = new Forklift(modelHelper);
+Forklift* forklift;// = new Forklift(modelHelper);
 	
 // Wymiary okna
 int oknoSzerkosc=800;
@@ -314,6 +319,35 @@ int main(int argc, char **argv)
 {
 	#define _KONFIGURACJA
 	#include "konfiguracja.cpp"
+
+	// initialize forklift here
+	std::queue<Operation*> operations;
+	
+	operations.push(new MoveOperation(Operation::MoveDirection::Z, 5));
+	operations.push(new RaiseMastOperation(Operation::ShelfLevel::Level2));
+	operations.push(new MoveOperation(Operation::MoveDirection::Z, -5));
+	operations.push(new LeavePalletOperation());
+	operations.push(new MoveOperation(Operation::MoveDirection::Z, 5));
+	operations.push(new LowerMastOperation());
+
+	operations.push(new PickUpPalletOperation());
+	operations.push(new RaiseMastOperation(Operation::ShelfLevel::Level0));
+	operations.push(new MoveOperation(Operation::MoveDirection::Z, -5));
+	operations.push(new LeavePalletOperation());
+	operations.push(new MoveOperation(Operation::MoveDirection::Z, 5));
+	operations.push(new LowerMastOperation());
+
+	operations.push(new PickUpPalletOperation());
+	operations.push(new RaiseMastOperation(Operation::ShelfLevel::Level1));
+	operations.push(new MoveOperation(Operation::MoveDirection::Z, -5));
+	operations.push(new LeavePalletOperation());
+	operations.push(new MoveOperation(Operation::MoveDirection::Z, 5));
+	operations.push(new LowerMastOperation());
+
+	operations.push(new PickUpPalletOperation());
+
+	forklift = new Forklift(modelHelper, operations);
+	
 	if (argc > 1 && argv[1][0] == '-' && argv[1][1] == 's') 	// poprawki w konfiguracji na podstawie parametró (te maj¹ pierwszeñstwo)
 	{
 		stereoTryb = 2;
