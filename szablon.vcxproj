@@ -140,7 +140,7 @@
     <ClCompile Include="interakcja.cpp" />
     <ClCompile Include="konfiguracja.cpp" />
     <ClCompile Include="model3DS.cpp" />
-    <ClCompile Include="MoveXOperation.cpp" />
+    <ClCompile Include="MoveOperation.cpp" />
     <ClCompile Include="PickUpPalletOperation.cpp" />
     <ClCompile Include="RaiseMastOperation.cpp" />
     <ClCompile Include="rysowanie.cpp" />
@@ -154,7 +154,7 @@
     <ClInclude Include="LowerMastOperation.h" />
     <ClInclude Include="model3DS.h" />
     <ClInclude Include="ModelHelper.h" />
-    <ClInclude Include="MoveXOperation.h" />
+    <ClInclude Include="MoveOperation.h" />
     <ClInclude Include="Operation.h" />
     <ClInclude Include="PickUpPalletOperation.h" />
     <ClInclude Include="Point3D.h" />
