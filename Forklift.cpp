@@ -1,6 +1,7 @@
 #include "Forklift.h"
 #include "LeavePalletOperation.h"
 #include "LowerMastOperation.h"
+#include "MoveOperation.h"
 #include "PickUpPalletOperation.h"
 #include "RaiseMastOperation.h"
 
@@ -8,18 +9,28 @@ Forklift::Forklift(ModelHelper* _modelHelper)
 {
 	this->modelHelper = _modelHelper;
 	
-	// TODO: this should be passed in argument
+	// TODO: operations should be passed in constructor argument
+	this->operations.push(new MoveOperation(Operation::MoveDirection::Z,5));
 	this->operations.push(new RaiseMastOperation(Operation::ShelfLevel::Level2));
+	this->operations.push(new MoveOperation(Operation::MoveDirection::Z, -5));
 	this->operations.push(new LeavePalletOperation());
+	this->operations.push(new MoveOperation(Operation::MoveDirection::Z, 5));
 	this->operations.push(new LowerMastOperation());
+	
 	this->operations.push(new PickUpPalletOperation());
 	this->operations.push(new RaiseMastOperation(Operation::ShelfLevel::Level0));
+	this->operations.push(new MoveOperation(Operation::MoveDirection::Z, -5));
 	this->operations.push(new LeavePalletOperation());
+	this->operations.push(new MoveOperation(Operation::MoveDirection::Z, 5));
 	this->operations.push(new LowerMastOperation());
+	
 	this->operations.push(new PickUpPalletOperation());
 	this->operations.push(new RaiseMastOperation(Operation::ShelfLevel::Level1));
+	this->operations.push(new MoveOperation(Operation::MoveDirection::Z, -5));
 	this->operations.push(new LeavePalletOperation());
+	this->operations.push(new MoveOperation(Operation::MoveDirection::Z, 5));
 	this->operations.push(new LowerMastOperation());
+	
 	this->operations.push(new PickUpPalletOperation());
 
 	this->current_operation = this->operations.front();
@@ -34,6 +45,7 @@ void Forklift::InvokeAction()
 	{
 		this->current_operation = this->operations.front();
 		this->operations.pop();
+		this->time = 0;
 	}
 	
 	if(this->time % 5 == 0 && !this->current_operation->is_finished(this))

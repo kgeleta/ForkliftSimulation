@@ -7,6 +7,7 @@ class Operation
 {
 public:
 	enum class ShelfLevel { Level0, Level1, Level2 };
+	enum class MoveDirection { X, Y, Z };
 	virtual ~Operation() = default;
 
 	virtual bool is_finished(Forklift* forklift) = 0;
