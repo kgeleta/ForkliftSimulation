@@ -5,19 +5,19 @@ class MoveOperation :
 	public Operation
 {
 private:
-	MoveDirection move_direction;
 	float move_step;
-	float start_position;
+	float current_position;
 	float distance;
-	bool initialized;
 public:
 
-	explicit MoveOperation(MoveDirection move_direction, float distance) : move_direction(move_direction), distance(distance)
+	explicit MoveOperation(MoveDirection move_direction, float distance) : current_position(0.0f)
 	{
-		this->move_step = distance >= 0 ? 0.1f : -0.1f;
-		this->initialized = false;
+		this->move_step = move_direction == MoveDirection::Forward ? -0.1f : 0.1f;
+		this->distance = move_direction == MoveDirection::Forward ? -distance : distance;
+		this->save_operation_in_memory = true;
 	}
 
 	bool is_finished(Forklift* forklift) override;
 	void do_single_action_step(Forklift* forklift) override;
+	void modify_matrix() override;
 };

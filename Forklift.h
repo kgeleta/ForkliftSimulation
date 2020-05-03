@@ -10,9 +10,9 @@ class Point3D;
 class Forklift
 {
 private:
-	std::vector<Point3D> palletsPositions;
 	ModelHelper* modelHelper;
 	std::queue<Operation*> operations;
+	std::vector<Operation*> memory;
 	Operation* current_operation;
 	float mastPosition = -4.5f;
 	float forksPosition = -4.5f;
@@ -28,8 +28,6 @@ public:
 
 	void add_current_pallet();
 
-	void draw_all_pallets();
-	
 	float mast_position() const
 	{
 		return mastPosition;

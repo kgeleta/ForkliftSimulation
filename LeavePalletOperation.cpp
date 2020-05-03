@@ -10,3 +10,7 @@ void LeavePalletOperation::do_single_action_step(Forklift* forklift)
 	forklift->add_current_pallet();
 	forklift->set_draw_pallet(false);
 }
+
+void LeavePalletOperation::modify_matrix()
+{
+}

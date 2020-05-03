@@ -18,6 +18,7 @@
 #include "MoveOperation.h"
 #include "PickUpPalletOperation.h"
 #include "RaiseMastOperation.h"
+#include "TurnOperation.h"
 
 //#include <GL/glaux.h>
 //#define GLUTCHECKLOOP
@@ -323,27 +324,35 @@ int main(int argc, char **argv)
 	// initialize forklift here
 	std::queue<Operation*> operations;
 	
-	operations.push(new MoveOperation(Operation::MoveDirection::Z, 5));
-	operations.push(new RaiseMastOperation(Operation::ShelfLevel::Level2));
-	operations.push(new MoveOperation(Operation::MoveDirection::Z, -5));
-	operations.push(new LeavePalletOperation());
-	operations.push(new MoveOperation(Operation::MoveDirection::Z, 5));
-	operations.push(new LowerMastOperation());
+	operations.push(new MoveOperation(Operation::MoveDirection::Forward, 10));	
+	operations.push(new TurnOperation(Operation::TurnDirection::Left, Operation::MoveDirection::Forward, 90));
+	operations.push(new MoveOperation(Operation::MoveDirection::Backward, 15));
+	operations.push(new TurnOperation(Operation::TurnDirection::Right, Operation::MoveDirection::Forward, 90));
+	operations.push(new MoveOperation(Operation::MoveDirection::Backward, 20));
+	operations.push(new TurnOperation(Operation::TurnDirection::Left, Operation::MoveDirection::Backward, 90));	
+	operations.push(new MoveOperation(Operation::MoveDirection::Forward, 10));
 
+
+	operations.push(new RaiseMastOperation(Operation::ShelfLevel::Level2));
+	operations.push(new MoveOperation(Operation::MoveDirection::Forward, 5));
+	operations.push(new LeavePalletOperation());
+	operations.push(new MoveOperation(Operation::MoveDirection::Backward, 5));
+	operations.push(new LowerMastOperation());
+	
 	operations.push(new PickUpPalletOperation());
 	operations.push(new RaiseMastOperation(Operation::ShelfLevel::Level0));
-	operations.push(new MoveOperation(Operation::MoveDirection::Z, -5));
+	operations.push(new MoveOperation(Operation::MoveDirection::Forward, 5));
 	operations.push(new LeavePalletOperation());
-	operations.push(new MoveOperation(Operation::MoveDirection::Z, 5));
+	operations.push(new MoveOperation(Operation::MoveDirection::Backward, 5));
 	operations.push(new LowerMastOperation());
-
+	
 	operations.push(new PickUpPalletOperation());
 	operations.push(new RaiseMastOperation(Operation::ShelfLevel::Level1));
-	operations.push(new MoveOperation(Operation::MoveDirection::Z, -5));
+	operations.push(new MoveOperation(Operation::MoveDirection::Forward, 5));
 	operations.push(new LeavePalletOperation());
-	operations.push(new MoveOperation(Operation::MoveDirection::Z, 5));
+	operations.push(new MoveOperation(Operation::MoveDirection::Backward, 5));
 	operations.push(new LowerMastOperation());
-
+	
 	operations.push(new PickUpPalletOperation());
 
 	forklift = new Forklift(modelHelper, operations);

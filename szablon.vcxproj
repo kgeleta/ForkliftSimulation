@@ -133,6 +133,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="definicje.cpp" />
+    <ClCompile Include="DrawPalletOperation.cpp" />
     <ClCompile Include="Forklift.cpp" />
     <ClCompile Include="LeavePalletOperation.cpp" />
     <ClCompile Include="LowerMastOperation.cpp" />
@@ -147,8 +148,10 @@
     <ClCompile Include="szablon.cpp" />
     <ClCompile Include="textureBMP.cpp" />
     <ClCompile Include="textureTGA.cpp" />
+    <ClCompile Include="TurnOperation.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DrawPalletOperation.h" />
     <ClInclude Include="Forklift.h" />
     <ClInclude Include="LeavePalletOperation.h" />
     <ClInclude Include="LowerMastOperation.h" />
@@ -161,6 +164,7 @@
     <ClInclude Include="RaiseMastOperation.h" />
     <ClInclude Include="textureBMP.h" />
     <ClInclude Include="textureTGA.h" />
+    <ClInclude Include="TurnOperation.h" />
     <ClInclude Include="Vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
