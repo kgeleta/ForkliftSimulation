@@ -334,12 +334,7 @@ int main(int argc, char **argv)
 		"jobs":
 		[
 			{
-				"shelf_index":1,
-				"shelf_level":2,
-				"pallet_position":1
-			},
-			{
-				"shelf_index":0,
+				"shelf_index":3,
 				"shelf_level":2,
 				"pallet_position":1
 			}
@@ -349,40 +344,10 @@ int main(int argc, char **argv)
 
 	JobList* jobList = JobList::CreateJobListFromJsonString(jsonString);
 	numberOfShelves = jobList->get_number_of_shelves();
+	std::vector<Operation*> generatedOperations = jobList->GenerateOperations();
 
-	// initialize forklift here
-	std::queue<Operation*> operations;
+	const std::queue<Operation*> operations(std::deque<Operation*>(generatedOperations.begin(), generatedOperations.end()));
 	
-	operations.push(new MoveOperation(Operation::MoveDirection::Forward, 10));	
-	operations.push(new TurnOperation(Operation::TurnDirection::Left, Operation::MoveDirection::Forward, 90));
-	operations.push(new MoveOperation(Operation::MoveDirection::Backward, 15));
-	operations.push(new TurnOperation(Operation::TurnDirection::Right, Operation::MoveDirection::Forward, 90));
-	operations.push(new MoveOperation(Operation::MoveDirection::Backward, 20));
-	operations.push(new TurnOperation(Operation::TurnDirection::Left, Operation::MoveDirection::Backward, 90));	
-	operations.push(new MoveOperation(Operation::MoveDirection::Forward, 10));
-	
-	operations.push(new RaiseMastOperation(Operation::ShelfLevel::Level2));
-	operations.push(new MoveOperation(Operation::MoveDirection::Forward, 5));
-	operations.push(new LeavePalletOperation());
-	operations.push(new MoveOperation(Operation::MoveDirection::Backward, 5));
-	operations.push(new LowerMastOperation());
-	
-	operations.push(new PickUpPalletOperation());
-	operations.push(new RaiseMastOperation(Operation::ShelfLevel::Level0));
-	operations.push(new MoveOperation(Operation::MoveDirection::Forward, 5));
-	operations.push(new LeavePalletOperation());
-	operations.push(new MoveOperation(Operation::MoveDirection::Backward, 5));
-	operations.push(new LowerMastOperation());
-	
-	operations.push(new PickUpPalletOperation());
-	operations.push(new RaiseMastOperation(Operation::ShelfLevel::Level1));
-	operations.push(new MoveOperation(Operation::MoveDirection::Forward, 5));
-	operations.push(new LeavePalletOperation());
-	operations.push(new MoveOperation(Operation::MoveDirection::Backward, 5));
-	operations.push(new LowerMastOperation());
-	
-	operations.push(new PickUpPalletOperation());
-
 	forklift = new Forklift(modelHelper, operations);
 	
 	if (argc > 1 && argv[1][0] == '-' && argv[1][1] == 's') 	// poprawki w konfiguracji na podstawie parametró (te maj¹ pierwszeñstwo)
