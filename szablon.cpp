@@ -13,17 +13,13 @@
 #include <GL/glu.h>
 #include "ModelHelper.h"
 #include "Forklift.h"
+#include "JobList.h"
 #include "LeavePalletOperation.h"
 #include "LowerMastOperation.h"
 #include "MoveOperation.h"
 #include "PickUpPalletOperation.h"
 #include "RaiseMastOperation.h"
 #include "TurnOperation.h"
-
-#include <nlohmann/json.hpp>
-
-// for convenience
-using json = nlohmann::json;
 
 //#include <GL/glaux.h>
 //#define GLUTCHECKLOOP
@@ -327,11 +323,25 @@ int main(int argc, char **argv)
 	#include "konfiguracja.cpp"
 
 	// test json deserialization
-	json j = "{ \"happy\": true, \"pi\": 3.141 }"_json;
+	std::string jsonString = R"(
+	{
+		"jobs":
+		[
+			{
+				"shelf_index":1,
+				"shelf_level":2,
+				"pallet_position":1
+			},
+			{
+				"shelf_index":0,
+				"shelf_level":2,
+				"pallet_position":1
+			}
+		]
+	}
+	)";
 
-	bool test = j["happy"];
-	float pi = j["pi"];
-	std::cout << test;
+	JobList* jobList = JobList::CreateJobListFromJsonString(jsonString);
 
 	// initialize forklift here
 	std::queue<Operation*> operations;

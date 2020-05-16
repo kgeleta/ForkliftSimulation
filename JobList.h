@@ -1,7 +1,9 @@
 ﻿#pragma once
 #include <utility>
-
 #include "JobEntity.h"
+#include <nlohmann/json.hpp>
+
+using json = nlohmann::json;
 
 class JobList
 {
@@ -14,9 +16,9 @@ private:
 	{
 	}
 
-public:
+public:	
 	static JobList* CreateJobListFromJsonFile(std::string filePath);
-	static JobList* CreateJobListFromJsonString(std::string json);
+	static JobList* CreateJobListFromJsonString(std::string jsonString);
 
 	std::vector<Operation*> GenerateOperations();
 
