@@ -2,7 +2,7 @@
 
 bool TurnOperation::is_finished(Forklift* forklift)
 {
-	return abs(this->current_angle - this->angle) <= 0.1f;
+	return abs(this->current_angle - this->angle) <= this->angle_step;
 }
 
 void TurnOperation::do_single_action_step(Forklift* forklift)
