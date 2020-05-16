@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include "Configuration.h"
 #include "Operation.h"
 
 class TurnOperation : public Operation
@@ -14,16 +15,15 @@ public:
 	{
 		if (turn_direction == TurnDirection::Left)
 		{
-			this->radius = 10.0f;
+			this->radius = FORKLIFT_ROTATION_RADIUS;
 			this->angle_step = move_direction == MoveDirection::Forward ? step : -step;
 			this->angle = move_direction == MoveDirection::Forward ? angle : -angle;
 		}
 		else
 		{
-			this->radius = -10.0f;
+			this->radius = -FORKLIFT_ROTATION_RADIUS;
 			this->angle_step = move_direction == MoveDirection::Forward ? -step : step;
 			this->angle = move_direction == MoveDirection::Forward ? -angle : angle;
-
 		}
 
 		this->save_operation_in_memory = true;

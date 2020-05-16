@@ -353,8 +353,7 @@ int main(int argc, char **argv)
 	operations.push(new MoveOperation(Operation::MoveDirection::Backward, 20));
 	operations.push(new TurnOperation(Operation::TurnDirection::Left, Operation::MoveDirection::Backward, 90));	
 	operations.push(new MoveOperation(Operation::MoveDirection::Forward, 10));
-
-
+	
 	operations.push(new RaiseMastOperation(Operation::ShelfLevel::Level2));
 	operations.push(new MoveOperation(Operation::MoveDirection::Forward, 5));
 	operations.push(new LeavePalletOperation());

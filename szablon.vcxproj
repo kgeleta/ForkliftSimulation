@@ -132,6 +132,7 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Configuration.cpp" />
     <ClCompile Include="definicje.cpp" />
     <ClCompile Include="DrawPalletOperation.cpp" />
     <ClCompile Include="Forklift.cpp" />
@@ -153,6 +154,7 @@
     <ClCompile Include="TurnOperation.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Configuration.h" />
     <ClInclude Include="DrawPalletOperation.h" />
     <ClInclude Include="Forklift.h" />
     <ClInclude Include="JobEntity.h" />
