@@ -135,6 +135,8 @@
     <ClCompile Include="definicje.cpp" />
     <ClCompile Include="DrawPalletOperation.cpp" />
     <ClCompile Include="Forklift.cpp" />
+    <ClCompile Include="JobEntity.cpp" />
+    <ClCompile Include="JobList.cpp" />
     <ClCompile Include="LeavePalletOperation.cpp" />
     <ClCompile Include="LowerMastOperation.cpp" />
     <ClCompile Include="ModelHelper.cpp" />
@@ -153,6 +155,8 @@
   <ItemGroup>
     <ClInclude Include="DrawPalletOperation.h" />
     <ClInclude Include="Forklift.h" />
+    <ClInclude Include="JobEntity.h" />
+    <ClInclude Include="JobList.h" />
     <ClInclude Include="LeavePalletOperation.h" />
     <ClInclude Include="LowerMastOperation.h" />
     <ClInclude Include="model3DS.h" />
@@ -167,7 +171,17 @@
     <ClInclude Include="TurnOperation.h" />
     <ClInclude Include="Vector.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="packages\nlohmann.json.3.7.3\build\native\nlohmann.json.targets" Condition="Exists('packages\nlohmann.json.3.7.3\build\native\nlohmann.json.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\nlohmann.json.3.7.3\build\native\nlohmann.json.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\nlohmann.json.3.7.3\build\native\nlohmann.json.targets'))" />
+  </Target>
 </Project>

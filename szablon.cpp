@@ -20,6 +20,11 @@
 #include "RaiseMastOperation.h"
 #include "TurnOperation.h"
 
+#include <nlohmann/json.hpp>
+
+// for convenience
+using json = nlohmann::json;
+
 //#include <GL/glaux.h>
 //#define GLUTCHECKLOOP
 
@@ -320,6 +325,13 @@ int main(int argc, char **argv)
 {
 	#define _KONFIGURACJA
 	#include "konfiguracja.cpp"
+
+	// test json deserialization
+	json j = "{ \"happy\": true, \"pi\": 3.141 }"_json;
+
+	bool test = j["happy"];
+	float pi = j["pi"];
+	std::cout << test;
 
 	// initialize forklift here
 	std::queue<Operation*> operations;
