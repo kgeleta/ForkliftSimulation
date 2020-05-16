@@ -27,9 +27,6 @@
     <ClCompile Include="model3DS.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="rysowanie.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="szablon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

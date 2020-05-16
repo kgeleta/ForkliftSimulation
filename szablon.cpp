@@ -20,12 +20,14 @@
 #include "PickUpPalletOperation.h"
 #include "RaiseMastOperation.h"
 #include "TurnOperation.h"
+#include "Configuration.h"
 
 //#include <GL/glaux.h>
 //#define GLUTCHECKLOOP
 
 ModelHelper* modelHelper = new ModelHelper();
-Forklift* forklift;// = new Forklift(modelHelper);
+Forklift* forklift;
+int numberOfShelves = 1;
 	
 // Wymiary okna
 int oknoSzerkosc=800;
@@ -231,6 +233,8 @@ void rozmiarPrawe (int width, int height)
  		RYSOWANIE TRESCI RAMKI
  *********************************************************/
 
+void Draw();
+
 void rysujRamke(bool prawa)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Kasowanie ekranu
@@ -256,8 +260,10 @@ void rysujRamke(bool prawa)
 	} //case
 
 
-	#define _RYSOWANIE
-	#include "rysowanie.cpp"	// rysowanie 
+	// #define _RYSOWANIE
+	// #include "rysowanie.cpp"	// rysowanie
+	//
+	Draw();
 
 	glFlush(); 
     glPopMatrix();
@@ -342,6 +348,7 @@ int main(int argc, char **argv)
 	)";
 
 	JobList* jobList = JobList::CreateJobListFromJsonString(jsonString);
+	numberOfShelves = jobList->get_number_of_shelves();
 
 	// initialize forklift here
 	std::queue<Operation*> operations;
@@ -437,4 +444,28 @@ int main(int argc, char **argv)
 		if (oknoFullScreen && stereoTryb != 2) glutFullScreen();
 		glutMainLoop();        
 	return(0);    
+}
+
+void Draw()
+{
+	glPushMatrix();
+	glTranslatef(0, -1, 0);
+	modelHelper->draw_model("droga_plyta"); // malowanie pod³o¿a
+	modelHelper->draw_model("niebo"); // malowanie nieba
+	glPopMatrix();
+
+
+	glPushMatrix();
+		glTranslatef(0, 0.3, -4.2);
+		for(int i = 0; i < numberOfShelves; i++)
+		{
+			glPushMatrix();
+				glScalef(1, 0.65, 1.1);
+				modelHelper->draw_model("shelf");
+			glPopMatrix();
+			glTranslatef(0, 0, -SPACE_BETWEEN_SHELVES);
+		}
+	glPopMatrix();
+
+	forklift->InvokeAction();
 }

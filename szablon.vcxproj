@@ -147,7 +147,6 @@
     <ClCompile Include="MoveOperation.cpp" />
     <ClCompile Include="PickUpPalletOperation.cpp" />
     <ClCompile Include="RaiseMastOperation.cpp" />
-    <ClCompile Include="rysowanie.cpp" />
     <ClCompile Include="szablon.cpp" />
     <ClCompile Include="textureBMP.cpp" />
     <ClCompile Include="textureTGA.cpp" />
