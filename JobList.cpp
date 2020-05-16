@@ -3,7 +3,12 @@
 JobList* JobList::CreateJobListFromJsonFile(std::string filePath)
 {
 	// TODO: implementation!
-	return nullptr;
+
+	std::ifstream t(filePath);
+	std::string str((std::istreambuf_iterator<char>(t)),
+		std::istreambuf_iterator<char>());
+	
+	return JobList::CreateJobListFromJsonString(str);
 }
 
 JobList* JobList::CreateJobListFromJsonString(std::string jsonString)
@@ -20,13 +25,20 @@ JobList* JobList::CreateJobListFromJsonString(std::string jsonString)
 		exit(-1);
 	}
 
+	int max_shelf_index = 0;
 	std::vector<JobEntity*> jobs;
 	for (auto jobJson : deserialized["jobs"])
 	{
-		jobs.push_back(new JobEntity(jobJson["shelf_index"], jobJson["shelf_level"], jobJson["pallet_position"]));
+		const int shelf_index = jobJson["shelf_index"];
+		if (shelf_index > max_shelf_index)
+		{
+			max_shelf_index = shelf_index;
+		}
+		
+		jobs.push_back(new JobEntity(shelf_index, jobJson["shelf_level"], jobJson["pallet_position"]));
 	}
 
-	return new JobList(jobs);
+	return new JobList(jobs, max_shelf_index + 1);
 }
 
 std::vector<Operation*> JobList::GenerateOperations()

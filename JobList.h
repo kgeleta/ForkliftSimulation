@@ -11,12 +11,12 @@ private:
 	std::vector<JobEntity*> jobs;
 	int number_of_shelves;
 
-	explicit JobList(std::vector<JobEntity*> jobs)
-		: jobs(std::move(jobs)), number_of_shelves(0)
+	explicit JobList(std::vector<JobEntity*> jobs, int number_of_shelves)
+		: jobs(std::move(jobs)), number_of_shelves(number_of_shelves)
 	{
 	}
 
-public:	
+public:
 	static JobList* CreateJobListFromJsonFile(std::string filePath);
 	static JobList* CreateJobListFromJsonString(std::string jsonString);
 

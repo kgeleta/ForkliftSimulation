@@ -1,0 +1,14 @@
+{
+  "jobs": [
+    {
+      "shelf_index": 1,
+      "shelf_level": 2,
+      "pallet_position": 1
+    },
+    {
+      "shelf_index": 0,
+      "shelf_level": 2,
+      "pallet_position": 1
+    }
+  ]
+}
