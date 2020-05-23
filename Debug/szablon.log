@@ -1,0 +1,5 @@
+﻿cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
+  szablon.cpp
+  JobEntity.cpp
+  Generating Code...
+  szablon.vcxproj -> C:\Users\Leslie\Downloads\turczyslaw\3Dengine\.\Debug\szablon.exe

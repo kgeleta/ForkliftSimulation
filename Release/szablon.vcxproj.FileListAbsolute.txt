@@ -1,0 +1,5 @@
+C:\Users\Leslie\Downloads\turczyslaw\3Dengine\Release\szablon.exe
+C:\Users\Leslie\Downloads\turczyslaw\3Dengine\Release\szablon.vcxprojAssemblyReference.cache
+C:\Users\Leslie\Downloads\turczyslaw\3Dengine\Release\szablon.vcxproj.CopyComplete
+C:\Users\Leslie\Downloads\turczyslaw\3Dengine\Release\Core.dll
+C:\Users\Leslie\Downloads\turczyslaw\3Dengine\Release\Core.pdb
