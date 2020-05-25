@@ -7,6 +7,7 @@
 #include "RaiseMastOperation.h"
 #include "TurnOperation.h"
 #include "Configuration.h"
+#include "Idle.h"
 
 std::vector<Operation*> JobEntity::GenerateOperations()
 {
@@ -33,7 +34,9 @@ std::vector<Operation*> JobEntity::GenerateOperations()
 	{
 		// New pallet
 		operations.push_back(new MoveOperation(Operation::MoveDirection::Forward, 5));
+		operations.push_back(new Idle(20));
 		operations.push_back(new PickUpPalletOperation());
+		operations.push_back(new Idle(50));
 		operations.push_back(new MoveOperation(Operation::MoveDirection::Backward, 5));
 		operations.push_back(new TurnOperation(Operation::TurnDirection::Right, Operation::MoveDirection::Backward, 90));
 		
@@ -70,17 +73,20 @@ std::vector<Operation*> JobEntity::GenerateOperations()
 		}
 		operations.push_back(new MoveOperation(Operation::MoveDirection::Forward, 5));
 		operations.push_back(new LeavePalletOperation());
+		operations.push_back(new Idle(50));
 		operations.push_back(new MoveOperation(Operation::MoveDirection::Backward, 5));
 		operations.push_back(new LowerMastOperation());
 
 		//Go back to start position
 		operations.push_back(new TurnOperation(Operation::TurnDirection::Right, Operation::MoveDirection::Backward, 90));
-		operations.push_back(new MoveOperation(Operation::MoveDirection::Forward, 15));
+		// Adjust to pallet position
+		operations.push_back(new MoveOperation(Operation::MoveDirection::Forward, adjustToPalletPosition));
+		operations.push_back(new MoveOperation(Operation::MoveDirection::Forward, 10));
 		operations.push_back(new TurnOperation(Operation::TurnDirection::Left, Operation::MoveDirection::Forward, 90));
 
 		// If shelf index bigger than 1, move path
 		if (shelf_index != 1) {
-			operations.push_back(new MoveOperation(Operation::MoveDirection::Forward, pathLen));
+			operations.push_back(new MoveOperation(Operation::MoveDirection::Forward, pathLen+10));
 		}
 	}
 
