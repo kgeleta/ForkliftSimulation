@@ -36,7 +36,7 @@ void Forklift::InvokeAction()
 		}		
 	}
 	
-	if(this->current_operation != nullptr && this->time % 5 == 0 && !this->current_operation->is_finished(this))
+	if(this->current_operation != nullptr && this->time % 1 == 0 && !this->current_operation->is_finished(this))
 	{
 		this->current_operation->do_single_action_step(this);
 	}
