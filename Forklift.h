@@ -19,7 +19,7 @@ private:
 	float positionX = 0.0f;
 	float positionY = 0.3f;
 	float positionZ = 0.0f;
-	bool draw_pallet = true;
+	bool draw_pallet = false;
 	int time = 0;
 
 public:

@@ -27,6 +27,10 @@ JobList* JobList::CreateJobListFromJsonString(std::string jsonString)
 
 	int max_shelf_index = 0;
 	std::vector<JobEntity*> jobs;
+
+	// Go to start position
+	jobs.push_back(new JobEntity(-1, -1, -1));
+
 	for (auto jobJson : deserialized["jobs"])
 	{
 		const int shelf_index = jobJson["shelf_index"];
