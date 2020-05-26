@@ -1,5 +1,5 @@
 ﻿  szablon.cpp
-  JobEntity.cpp
-D:\Documents\Studia\Projekty\ForkliftSimulation\JobEntity.cpp(41,32): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  Forklift.cpp
+C:\Users\Leslie\Downloads\turczyslaw\3Dengine\Forklift.cpp(65,32): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
   Generating Code...
-  szablon.vcxproj -> D:\Documents\Studia\Projekty\ForkliftSimulation\.\Release\szablon.exe
+  szablon.vcxproj -> C:\Users\Leslie\Downloads\turczyslaw\3Dengine\.\Release\szablon.exe
