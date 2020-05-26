@@ -67,54 +67,9 @@ void Forklift::InvokeAction()
 
 
 			// cube
-			float color_r = 0.0f;
-			float color_g = 0.0f;
-			float color_b = 1.0f;
-
 			glPushMatrix();
 				glTranslatef(-0.2f, 1.2f, -1.0f);
-
-				glEnable(GL_COLOR_MATERIAL);
-				glBegin(GL_QUADS);
-
-				glEnable(GL_DEPTH_TEST);
-				glColor3f(color_r, color_g, color_b);
-				glVertex3f(1.0f, 1.0f, -1.0f);
-				glVertex3f(-1.0f, 1.0f, -1.0f);
-				glVertex3f(-1.0f, 1.0f, 1.0f);
-				glVertex3f(1.0f, 1.0f, 1.0f);
-
-				glColor3f(color_r, color_g, color_b);
-				glVertex3f(1.0f, -1.0f, 1.0f);
-				glVertex3f(-1.0f, -1.0f, 1.0f);
-				glVertex3f(-1.0f, -1.0f, -1.0f);
-				glVertex3f(1.0f, -1.0f, -1.0f);
-
-				glColor3f(color_r, color_g, color_b);
-				glVertex3f(1.0f, 1.0f, 1.0f);
-				glVertex3f(-1.0f, 1.0f, 1.0f);
-				glVertex3f(-1.0f, -1.0f, 1.0f);
-				glVertex3f(1.0f, -1.0f, 1.0f);
-
-				glColor3f(color_r, color_g, color_b);
-				glVertex3f(1.0f, -1.0f, -1.0f);
-				glVertex3f(-1.0f, -1.0f, -1.0f);
-				glVertex3f(-1.0f, 1.0f, -1.0f);
-				glVertex3f(1.0f, 1.0f, -1.0f);
-
-				glColor3f(color_r, color_g, color_b);
-				glVertex3f(-1.0f, 1.0f, 1.0f);
-				glVertex3f(-1.0f, 1.0f, -1.0f);
-				glVertex3f(-1.0f, -1.0f, -1.0f);
-				glVertex3f(-1.0f, -1.0f, 1.0f);
-
-				glColor3f(color_r, color_g, color_b);
-				glVertex3f(1.0f, 1.0f, -1.0f);
-				glVertex3f(1.0f, 1.0f, 1.0f);
-				glVertex3f(1.0f, -1.0f, 1.0f);
-				glVertex3f(1.0f, -1.0f, -1.0f);
-				glEnd();  // End of drawing color-cube
-				glDisable(GL_COLOR_MATERIAL);
+				modelHelper->draw_cube(Color(0.0f, 0.0f, 1.0f));
 			glPopMatrix();
 		}
 	glPopMatrix();

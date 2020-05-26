@@ -1,6 +1,9 @@
 #pragma once
 #include "model3DS.h"
 #include <direct.h>
+#include "Color.h"
+
+struct Color;
 
 class ModelHelper
 {
@@ -22,4 +25,6 @@ public:
 	void activate_special_model_rendering(char* file_name, int spec_id = 0) const;
 
 	void load_models();
+
+	void draw_cube(Color color);
 };

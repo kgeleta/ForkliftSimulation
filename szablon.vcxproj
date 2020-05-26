@@ -132,6 +132,7 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Color.cpp" />
     <ClCompile Include="Configuration.cpp" />
     <ClCompile Include="definicje.cpp" />
     <ClCompile Include="DrawPalletOperation.cpp" />
@@ -154,6 +155,7 @@
     <ClCompile Include="TurnOperation.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Color.h" />
     <ClInclude Include="Configuration.h" />
     <ClInclude Include="DrawPalletOperation.h" />
     <ClInclude Include="Forklift.h" />

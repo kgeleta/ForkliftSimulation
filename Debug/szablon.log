@@ -1,34 +1,5 @@
 ﻿cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
-  TurnOperation.cpp
-  textureTGA.cpp
-  textureBMP.cpp
-  szablon.cpp
-  Idle.cpp
-  RaiseMastOperation.cpp
-  PickUpPalletOperation.cpp
-  MoveOperation.cpp
-  model3DS.cpp
-  konfiguracja.cpp
-  interakcja.cpp
-  ModelHelper.cpp
-C:\Users\Leslie\Downloads\turczyslaw\3Dengine\ModelHelper.cpp(8,2): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\Leslie\Downloads\turczyslaw\3Dengine\ModelHelper.cpp(20,3): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\Leslie\Downloads\turczyslaw\3Dengine\ModelHelper.cpp(21,3): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\Leslie\Downloads\turczyslaw\3Dengine\ModelHelper.cpp(54,2): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\Leslie\Downloads\turczyslaw\3Dengine\ModelHelper.cpp(65,4): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\Leslie\Downloads\turczyslaw\3Dengine\ModelHelper.cpp(66,4): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  LowerMastOperation.cpp
-  LeavePalletOperation.cpp
-  JobList.cpp
-  JobEntity.cpp
-C:\Users\Leslie\Downloads\turczyslaw\3Dengine\JobEntity.cpp(41,32): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-  Forklift.cpp
-C:\Users\Leslie\Downloads\turczyslaw\3Dengine\Forklift.cpp(65,32): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
   DrawPalletOperation.cpp
 C:\Users\Leslie\Downloads\turczyslaw\3Dengine\DrawPalletOperation.cpp(15,49): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
 C:\Users\Leslie\Downloads\turczyslaw\3Dengine\DrawPalletOperation.cpp(15,38): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-  definicje.cpp
-  Configuration.cpp
-  Generating Code...
-Configuration.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
   szablon.vcxproj -> C:\Users\Leslie\Downloads\turczyslaw\3Dengine\.\Debug\szablon.exe
