@@ -1,4 +1,5 @@
 ﻿  szablon.cpp
-  TurnOperation.cpp
+  JobEntity.cpp
+D:\Documents\Studia\Projekty\ForkliftSimulation\JobEntity.cpp(41,32): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
   Generating Code...
   szablon.vcxproj -> D:\Documents\Studia\Projekty\ForkliftSimulation\.\Release\szablon.exe
