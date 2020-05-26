@@ -18,20 +18,30 @@ std::vector<Operation*> JobEntity::GenerateOperations()
 	
 	// Definitions
 	std::vector<Operation*> operations;
-	// Path to shelf
-	float pathLen = ((shelf_index - 1) * SPACE_BETWEEN_SHELVES) - 10;
-	// Adjust to pallet position
-	float adjustToPalletPosition = (pallet_position - 1) * 5;
-
 
 	// Set start position
 	if (shelf_index == -1 && shelf_level == -1 && pallet_position == -1) {
 		operations.push_back(new MoveOperation(Operation::MoveDirection::Forward, 20));
 		operations.push_back(new TurnOperation(Operation::TurnDirection::Right, Operation::MoveDirection::Backward, 90));
 		operations.push_back(new MoveOperation(Operation::MoveDirection::Forward, 20));
+
+		// TEST TO REMOVE
+		operations.push_back(new MoveOperation(Operation::MoveDirection::Forward, 5));
+		operations.push_back(new PickUpPalletOperation());
+		operations.push_back(new LeavePalletOperation());
+		operations.push_back(new MoveOperation(Operation::MoveDirection::Backward, 5));
+		// TEST TO REMOVE
 	}
 	else
 	{
+		// Debug
+		// Path to shelf
+		float pathLen = ((shelf_index - 1) * SPACE_BETWEEN_SHELVES) - 10;
+		// Adjust to pallet position
+		float adjustToPalletPosition = (pallet_position - 1) * 5;
+
+		std::cout << shelf_index << " " << shelf_level << " " << pallet_position << " " << pathLen << " " << adjustToPalletPosition << "\n";
+
 		// New pallet
 		operations.push_back(new MoveOperation(Operation::MoveDirection::Forward, 5));
 		operations.push_back(new Idle(20));
@@ -51,7 +61,7 @@ std::vector<Operation*> JobEntity::GenerateOperations()
 			operations.push_back(new TurnOperation(Operation::TurnDirection::Right, Operation::MoveDirection::Forward, 90));
 		}
 		else {
-			operations.push_back(new MoveOperation(Operation::MoveDirection::Forward, 15));
+			operations.push_back(new MoveOperation(Operation::MoveDirection::Forward, 10));
 		}
 
 		// Adjust to pallet position

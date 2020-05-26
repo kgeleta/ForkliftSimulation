@@ -13,9 +13,23 @@ void TurnOperation::do_single_action_step(Forklift* forklift)
 	}
 }
 
+//void TurnOperation::modify_matrix()
+//{
+//	glTranslatef(0.0f, 0.0f, this->radius);
+//	glRotatef(this->current_angle, 0, 1, 0);
+//	glTranslatef(0.0f, 0.0f, -this->radius);
+//}
+
 void TurnOperation::modify_matrix()
 {
 	glTranslatef(0.0f, 0.0f, this->radius);
-	glRotatef(this->current_angle, 0, 1, 0);
+	if (!this->is_finished(nullptr))
+	{
+		glRotatef(this->current_angle, 0, 1, 0);
+	}
+	else
+	{
+		glRotatef(this->angle, 0, 1, 0);
+	}
 	glTranslatef(0.0f, 0.0f, -this->radius);
 }

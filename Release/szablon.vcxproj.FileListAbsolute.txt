@@ -3,3 +3,4 @@ C:\Users\Leslie\Downloads\turczyslaw\3Dengine\Release\szablon.vcxprojAssemblyRef
 C:\Users\Leslie\Downloads\turczyslaw\3Dengine\Release\szablon.vcxproj.CopyComplete
 C:\Users\Leslie\Downloads\turczyslaw\3Dengine\Release\Core.dll
 C:\Users\Leslie\Downloads\turczyslaw\3Dengine\Release\Core.pdb
+D:\Documents\Studia\Projekty\ForkliftSimulation\Release\szablon.exe
