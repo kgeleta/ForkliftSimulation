@@ -23,6 +23,7 @@ std::vector<Operation*> JobEntity::GenerateOperations()
 	// Adjust to pallet position
 	float adjustToPalletPosition = (pallet_position - 1) * 5;
 
+	std::cout << shelf_index << " " << shelf_level << " " << pallet_position << " " << pathLen << " " << adjustToPalletPosition << "\n";
 
 	// Set start position
 	if (shelf_index == -1 && shelf_level == -1 && pallet_position == -1) {
