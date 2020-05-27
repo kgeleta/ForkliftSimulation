@@ -69,13 +69,14 @@ void Forklift::InvokeAction()
 			// cube
 			glPushMatrix();
 				glTranslatef(-0.2f, 1.2f, -1.0f);
-				modelHelper->draw_cube(Color(0.0f, 0.0f, 1.0f));
+				Color c = ColorHelper::get_color_for_shelf(this->currentShelfIndex);
+				modelHelper->draw_cube(Color(c.red, c.green, c.blue));
 			glPopMatrix();
 		}
 	glPopMatrix();
 }
 
-void Forklift::add_current_pallet()
+void Forklift::add_current_pallet(int shelfIndex)
 {
-	this->memory.push_back(new DrawPalletOperation(this->modelHelper, this->mast_position() + this->forks_position()));
+	this->memory.push_back(new DrawPalletOperation(this->modelHelper, this->mast_position() + this->forks_position(), this->currentShelfIndex));
 }

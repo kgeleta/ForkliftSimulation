@@ -133,6 +133,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Color.cpp" />
+    <ClCompile Include="ColorHelper.cpp" />
     <ClCompile Include="Configuration.cpp" />
     <ClCompile Include="definicje.cpp" />
     <ClCompile Include="DrawPalletOperation.cpp" />
@@ -156,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Color.h" />
+    <ClInclude Include="ColorHelper.h" />
     <ClInclude Include="Configuration.h" />
     <ClInclude Include="DrawPalletOperation.h" />
     <ClInclude Include="Forklift.h" />

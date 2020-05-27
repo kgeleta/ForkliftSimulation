@@ -27,8 +27,8 @@ std::vector<Operation*> JobEntity::GenerateOperations()
 
 		// TEST TO REMOVE
 		operations.push_back(new MoveOperation(Operation::MoveDirection::Forward, 5));
-		operations.push_back(new PickUpPalletOperation());
-		operations.push_back(new LeavePalletOperation());
+		operations.push_back(new PickUpPalletOperation(-1));
+		operations.push_back(new LeavePalletOperation(-1));
 		operations.push_back(new MoveOperation(Operation::MoveDirection::Backward, 5));
 		// TEST TO REMOVE
 	}
@@ -45,7 +45,7 @@ std::vector<Operation*> JobEntity::GenerateOperations()
 		// New pallet
 		operations.push_back(new MoveOperation(Operation::MoveDirection::Forward, 5));
 		operations.push_back(new Idle(20));
-		operations.push_back(new PickUpPalletOperation());
+		operations.push_back(new PickUpPalletOperation(this->shelf_index));
 		operations.push_back(new Idle(50));
 		operations.push_back(new MoveOperation(Operation::MoveDirection::Backward, 5));
 		operations.push_back(new TurnOperation(Operation::TurnDirection::Right, Operation::MoveDirection::Backward, 90));
@@ -82,7 +82,7 @@ std::vector<Operation*> JobEntity::GenerateOperations()
 			break;
 		}
 		operations.push_back(new MoveOperation(Operation::MoveDirection::Forward, 5));
-		operations.push_back(new LeavePalletOperation());
+		operations.push_back(new LeavePalletOperation(this->shelf_index));
 		operations.push_back(new Idle(50));
 		operations.push_back(new MoveOperation(Operation::MoveDirection::Backward, 5));
 		operations.push_back(new LowerMastOperation());

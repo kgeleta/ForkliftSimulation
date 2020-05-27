@@ -7,7 +7,7 @@ bool LeavePalletOperation::is_finished(Forklift* forklift)
 
 void LeavePalletOperation::do_single_action_step(Forklift* forklift)
 {
-	forklift->add_current_pallet();
+	forklift->add_current_pallet(this->shelfIndex);
 	forklift->set_draw_pallet(false);
 }
 

@@ -21,12 +21,13 @@ private:
 	float positionZ = 0.0f;
 	bool draw_pallet = false;
 	int time = 0;
+	int currentShelfIndex = -1;
 
 public:
 	Forklift(ModelHelper* _modelHelper, std::queue<Operation*> _operations);
 	void InvokeAction();
 
-	void add_current_pallet();
+	void add_current_pallet(int shelfIndex);
 
 	float mast_position() const
 	{
@@ -87,5 +88,15 @@ public:
 	void set_draw_pallet(bool draw_pallet)
 	{
 		this->draw_pallet = draw_pallet;
+	}
+
+	int get_current_shelf_index() const
+	{
+		return currentShelfIndex;
+	}
+
+	void set_current_shelf_index(int current_shelf_index)
+	{
+		currentShelfIndex = current_shelf_index;
 	}
 };

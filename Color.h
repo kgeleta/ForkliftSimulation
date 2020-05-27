@@ -12,4 +12,8 @@ struct Color
 		  blue(blue)
 	{
 	}
+
+	Color() : red(1.0f),
+		green(1.0f),
+		blue(1.0f){}
 };
