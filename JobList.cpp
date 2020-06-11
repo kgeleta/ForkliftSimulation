@@ -57,3 +57,14 @@ std::vector<Operation*> JobList::GenerateOperations()
 
 	return result;
 }
+
+std::vector<int> JobList::get_shelf_index_list() const
+{
+	std::vector<int> result;
+	for (const std::vector<JobEntity*>::value_type job : this->jobs)
+	{
+		result.push_back(job->get_shelf_index());
+	}
+	
+	return result;
+}

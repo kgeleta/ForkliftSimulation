@@ -18,4 +18,9 @@ public:
 	}
 
 	std::vector<Operation*> GenerateOperations();
+
+	int get_shelf_index() const
+	{
+		return shelf_index;
+	}
 };

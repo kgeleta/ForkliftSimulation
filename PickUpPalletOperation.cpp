@@ -7,9 +7,8 @@ bool PickUpPalletOperation::is_finished(Forklift* forklift)
 
 void PickUpPalletOperation::do_single_action_step(Forklift* forklift)
 {
-	// TODO: remove pallet from the ground
-	forklift->set_current_shelf_index(this->shelfIndex);
-	forklift->set_draw_pallet(true);
+	forklift->set_draw_pallet_on_ground(false);
+	forklift->set_draw_pallet_on_fork(true);
 }
 
 void PickUpPalletOperation::modify_matrix()

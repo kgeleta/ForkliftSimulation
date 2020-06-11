@@ -2,6 +2,8 @@
 #include <queue>
 #include "ModelHelper.h"
 #include "Operation.h"
+#include "Configuration.h"
+
 #include "Point3D.h"
 
 class Operation;
@@ -13,21 +15,23 @@ private:
 	ModelHelper* modelHelper;
 	std::queue<Operation*> operations;
 	std::vector<Operation*> memory;
+	std::vector<int> shelf_indexes;
 	Operation* current_operation;
 	float mastPosition = -4.5f;
 	float forksPosition = -4.5f;
 	float positionX = 0.0f;
 	float positionY = 0.3f;
 	float positionZ = 0.0f;
-	bool draw_pallet = false;
+	bool draw_pallet_on_fork = false;
+	bool draw_pallet_on_ground = true;
 	int time = 0;
-	int currentShelfIndex = -1;
+	int currentShelfIndex = 1;
 
 public:
-	Forklift(ModelHelper* _modelHelper, std::queue<Operation*> _operations);
+	Forklift(ModelHelper* _modelHelper, std::queue<Operation*> _operations, std::vector<int> _shelfIndexes);
 	void InvokeAction();
 
-	void add_current_pallet(int shelfIndex);
+	void add_current_pallet_to_memory();
 
 	float mast_position() const
 	{
@@ -82,21 +86,37 @@ public:
 
 	bool is_draw_pallet() const
 	{
-		return draw_pallet;
+		return draw_pallet_on_fork;
 	}
 
-	void set_draw_pallet(bool draw_pallet)
+	void set_draw_pallet_on_fork(bool draw_pallet)
 	{
-		this->draw_pallet = draw_pallet;
+		this->draw_pallet_on_fork = draw_pallet;
 	}
 
-	int get_current_shelf_index() const
+	// int get_current_shelf_index() const
+	// {
+	// 	return currentShelfIndex;
+	// }
+	//
+	// void set_current_shelf_index(int current_shelf_index)
+	// {
+	// 	currentShelfIndex = current_shelf_index;
+	// }
+
+	void next_shelf_index()
 	{
-		return currentShelfIndex;
+		currentShelfIndex++;
+	}
+	
+
+	bool is_draw_pallet_on_ground() const
+	{
+		return draw_pallet_on_ground;
 	}
 
-	void set_current_shelf_index(int current_shelf_index)
+	void set_draw_pallet_on_ground(bool draw_pallet_on_ground)
 	{
-		currentShelfIndex = current_shelf_index;
+		this->draw_pallet_on_ground = draw_pallet_on_ground;
 	}
 };

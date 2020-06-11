@@ -334,7 +334,7 @@ int main(int argc, char **argv)
 		"jobs":
 		[
 			{
-				"shelf_index":3,
+				"shelf_index":1,
 				"shelf_level":2,
 				"pallet_position":1
 			},
@@ -363,7 +363,7 @@ int main(int argc, char **argv)
 
 	const std::queue<Operation*> operations(std::deque<Operation*>(generatedOperations.begin(), generatedOperations.end()));
 	
-	forklift = new Forklift(modelHelper, operations);
+	forklift = new Forklift(modelHelper, operations, jobList->get_shelf_index_list());
 	
 	if (argc > 1 && argv[1][0] == '-' && argv[1][1] == 's') 	// poprawki w konfiguracji na podstawie parametró (te maj¹ pierwszeñstwo)
 	{

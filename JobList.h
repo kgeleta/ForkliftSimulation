@@ -26,4 +26,6 @@ public:
 	{
 		return number_of_shelves;
 	}
+
+	std::vector<int> get_shelf_index_list() const;
 };

@@ -1,21 +1,22 @@
 ﻿cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
-  PickUpPalletOperation.cpp
-  JobEntity.cpp
-C:\Users\Leslie\Downloads\turczyslaw\3Dengine\JobEntity.cpp(41,32): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-  Forklift.cpp
-C:\Users\Leslie\Downloads\turczyslaw\3Dengine\Forklift.cpp(65,32): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-  DrawPalletOperation.cpp
-C:\Users\Leslie\Downloads\turczyslaw\3Dengine\DrawPalletOperation.cpp(16,49): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\Leslie\Downloads\turczyslaw\3Dengine\DrawPalletOperation.cpp(16,38): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+  JobList.cpp
   Generating Code...
   Compiling...
   szablon.cpp
   TurnOperation.cpp
   RaiseMastOperation.cpp
+  PickUpPalletOperation.cpp
   MoveOperation.cpp
   LowerMastOperation.cpp
   LeavePalletOperation.cpp
-  JobList.cpp
+  JobEntity.cpp
+C:\Users\Leslie\Downloads\turczyslaw\3Dengine\JobEntity.cpp(41,32): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
   Idle.cpp
+  Forklift.cpp
+C:\Users\Leslie\Downloads\turczyslaw\3Dengine\Forklift.cpp(19,61): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Leslie\Downloads\turczyslaw\3Dengine\Forklift.cpp(77,32): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+  DrawPalletOperation.cpp
+C:\Users\Leslie\Downloads\turczyslaw\3Dengine\DrawPalletOperation.cpp(16,49): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\Leslie\Downloads\turczyslaw\3Dengine\DrawPalletOperation.cpp(16,38): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
   Generating Code...
   szablon.vcxproj -> C:\Users\Leslie\Downloads\turczyslaw\3Dengine\.\Debug\szablon.exe
