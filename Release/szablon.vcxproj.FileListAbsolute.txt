@@ -1,2 +1,3 @@
 C:\Users\Leslie\Downloads\turczyslaw\3Dengine\Release\szablon.exe
 D:\Documents\Studia\Projekty\ForkliftSimulation\Release\szablon.exe
+D:\Documents\Studia\Turas\Projekt\ForkliftSimulation\Release\szablon.exe

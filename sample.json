@@ -1,14 +1,25 @@
 {
-  "jobs": [
+  "jobs":
+  [
     {
-      "shelf_index": 1,
-      "shelf_level": 2,
-      "pallet_position": 1
+      "shelf_index":1,
+      "shelf_level":2,
+      "pallet_position":1
     },
     {
-      "shelf_index": 0,
-      "shelf_level": 2,
-      "pallet_position": 1
+      "shelf_index":2,
+      "shelf_level":1,
+      "pallet_position":3
+    },
+    {
+      "shelf_index":1,
+      "shelf_level":0,
+      "pallet_position":2
+    },
+    {
+      "shelf_index":1,
+      "shelf_level":1,
+      "pallet_position":1
     }
   ]
 }

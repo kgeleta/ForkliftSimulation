@@ -1,5 +1,4 @@
 ﻿  szablon.cpp
-  Forklift.cpp
-C:\Users\Leslie\Downloads\turczyslaw\3Dengine\Forklift.cpp(65,32): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+  szablon.cpp
   Generating Code...
-  szablon.vcxproj -> C:\Users\Leslie\Downloads\turczyslaw\3Dengine\.\Release\szablon.exe
+  szablon.vcxproj -> D:\Documents\Studia\Turas\Projekt\ForkliftSimulation\.\Release\szablon.exe

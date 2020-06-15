@@ -11,6 +11,7 @@
 #include <time.h>
 #include <direct.h>
 #include <GL/glu.h>
+#include <fstream>
 #include "ModelHelper.h"
 #include "Forklift.h"
 #include "JobList.h"
@@ -329,33 +330,49 @@ int main(int argc, char **argv)
 	#include "konfiguracja.cpp"
 
 	// test json deserialization
-	std::string jsonString = R"(
-	{
-		"jobs":
-		[
-			{
-				"shelf_index":1,
-				"shelf_level":2,
-				"pallet_position":1
-			},
-			{
-				"shelf_index":2,
-				"shelf_level":1,
-				"pallet_position":3
-			},
-			{
-				"shelf_index":1,
-				"shelf_level":0,
-				"pallet_position":2
-			},
-			{
-				"shelf_index":1,
-				"shelf_level":1,
-				"pallet_position":1
-			}
-		]
+	std::string jsonString;
+	if (argc > 1) {
+		std::ifstream json_file;
+		json_file.open(argv[1]);
+		if (json_file.fail()) {
+			jsonString = R"(
+				{
+					"jobs":
+					[
+						{
+							"shelf_index":2,
+							"shelf_level":1,
+							"pallet_position":1
+						}
+					]
+				}
+			)";
+		}
+		else
+		{
+			std::stringstream buffer;
+			buffer << json_file.rdbuf();
+
+			std::cout << buffer.str();
+			jsonString = buffer.str();
+		}
 	}
-	)";
+	else
+	{
+		jsonString = R"(
+			{
+				"jobs":
+				[
+					{
+						"shelf_index":1,
+						"shelf_level":1,
+						"pallet_position":1
+					}
+				]
+			}
+		)";
+	}
+	
 
 	JobList* jobList = JobList::CreateJobListFromJsonString(jsonString);
 	numberOfShelves = jobList->get_number_of_shelves();
