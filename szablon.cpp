@@ -5,6 +5,7 @@
 
 */
 
+#include <regex>
 #include <windows.h>
 #include "glut.h"
 #include "model3DS.h"
@@ -333,14 +334,18 @@ int main(int argc, char **argv)
 	std::string jsonString;
 	if (argc > 1) {
 		std::ifstream json_file;
+
+		// open json from arg
 		json_file.open(argv[1]);
+		// if fail
 		if (json_file.fail()) {
+			std::cout << "Fail to open JSON file\n";
 			jsonString = R"(
 				{
 					"jobs":
 					[
 						{
-							"shelf_index":2,
+							"shelf_index":1,
 							"shelf_level":1,
 							"pallet_position":1
 						}
@@ -352,13 +357,32 @@ int main(int argc, char **argv)
 		{
 			std::stringstream buffer;
 			buffer << json_file.rdbuf();
-
-			std::cout << buffer.str();
 			jsonString = buffer.str();
+
+			// check if indexes are corect
+			std::smatch result1, result2;
+			std::regex pattern1("\"shelf_level\":\s*(([3-9][0-9]*)|([0-9][0-9]+))");
+			std::regex pattern2("\"pallet_position\":\s*(([4-9][0-9]*)|([0-9][0-9]+)|0)");
+			if (std::regex_search(jsonString, result1, pattern1) || std::regex_search(jsonString, result2, pattern2)) {
+				std::cout << "Wrong JSON indexes\n";
+				jsonString = R"(
+					{
+						"jobs":
+						[
+							{
+								"shelf_index":1,
+								"shelf_level":1,
+								"pallet_position":2
+							}
+						]
+					}
+				)";
+			}
 		}
 	}
 	else
 	{
+		std::cout << "No JSON file specified\n";
 		jsonString = R"(
 			{
 				"jobs":
@@ -366,7 +390,7 @@ int main(int argc, char **argv)
 					{
 						"shelf_index":1,
 						"shelf_level":1,
-						"pallet_position":1
+						"pallet_position":3
 					}
 				]
 			}

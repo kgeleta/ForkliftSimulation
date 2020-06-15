@@ -25,12 +25,6 @@ std::vector<Operation*> JobEntity::GenerateOperations()
 		operations.push_back(new TurnOperation(Operation::TurnDirection::Right, Operation::MoveDirection::Backward, 90));
 		operations.push_back(new MoveOperation(Operation::MoveDirection::Forward, 20));
 
-		// TEST TO REMOVE
-		// operations.push_back(new MoveOperation(Operation::MoveDirection::Forward, 5));
-		// operations.push_back(new PickUpPalletOperation());
-		// operations.push_back(new LeavePalletOperation());
-		// operations.push_back(new MoveOperation(Operation::MoveDirection::Backward, 5));
-		// TEST TO REMOVE
 	}
 	else
 	{
@@ -39,8 +33,6 @@ std::vector<Operation*> JobEntity::GenerateOperations()
 		float pathLen = ((shelf_index - 1) * SPACE_BETWEEN_SHELVES) - 10;
 		// Adjust to pallet position
 		float adjustToPalletPosition = (pallet_position - 1) * 5;
-
-		std::cout << shelf_index << " " << shelf_level << " " << pallet_position << " " << pathLen << " " << adjustToPalletPosition << "\n";
 
 		// New pallet
 		operations.push_back(new MoveOperation(Operation::MoveDirection::Forward, 5));
@@ -99,36 +91,6 @@ std::vector<Operation*> JobEntity::GenerateOperations()
 			operations.push_back(new MoveOperation(Operation::MoveDirection::Forward, pathLen+10));
 		}
 	}
-
-	
-
-	//operations.push_back(new MoveOperation(Operation::MoveDirection::Forward, 0));
-	//operations.push_back(new TurnOperation(Operation::TurnDirection::Left, Operation::MoveDirection::Forward, 90));
-	//operations.push_back(new MoveOperation(Operation::MoveDirection::Backward, 15));
-	//operations.push_back(new TurnOperation(Operation::TurnDirection::Right, Operation::MoveDirection::Forward, 90));
-	//operations.push_back(new MoveOperation(Operation::MoveDirection::Backward, 20));
-	//operations.push_back(new TurnOperation(Operation::TurnDirection::Left, Operation::MoveDirection::Backward, 90));
-	//operations.push_back(new MoveOperation(Operation::MoveDirection::Forward, 10));
-
-	//operations.push_back(new RaiseMastOperation(Operation::ShelfLevel::Level2));
-	//operations.push_back(new MoveOperation(Operation::MoveDirection::Forward, 5));
-	//operations.push_back(new LeavePalletOperation());
-	//operations.push_back(new MoveOperation(Operation::MoveDirection::Backward, 5));
-	//operations.push_back(new LowerMastOperation());
-
-	//operations.push_back(new PickUpPalletOperation());
-	//operations.push_back(new RaiseMastOperation(Operation::ShelfLevel::Level0));
-	//operations.push_back(new MoveOperation(Operation::MoveDirection::Forward, 5));
-	//operations.push_back(new LeavePalletOperation());
-	//operations.push_back(new MoveOperation(Operation::MoveDirection::Backward, 5));
-	//operations.push_back(new LowerMastOperation());
-
-	//operations.push_back(new PickUpPalletOperation());
-	//operations.push_back(new RaiseMastOperation(Operation::ShelfLevel::Level1));
-	//operations.push_back(new MoveOperation(Operation::MoveDirection::Forward, 5));
-	//operations.push_back(new LeavePalletOperation());
-	//operations.push_back(new MoveOperation(Operation::MoveDirection::Backward, 5));
-	//operations.push_back(new LowerMastOperation());
 
 	return operations;
 }
